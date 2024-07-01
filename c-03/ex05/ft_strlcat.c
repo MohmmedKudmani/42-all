@@ -12,7 +12,7 @@
 
 // #include <stdio.h>
 
-int	ft_strlen(char *str)
+int	get_len(char *str)
 {
 	int	i;
 
@@ -38,7 +38,7 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 		j++;
 	}
 	dest_len = j;
-	src_len = ft_strlen(src);
+	src_len = get_len(src);
 	if (size == 0 || size <= dest_len)
 	{
 		return (src_len + size);
