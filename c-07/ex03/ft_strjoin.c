@@ -1,17 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mal-shol <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 14:38:48 by mal-shol          #+#    #+#             */
-/*   Updated: 2024/07/02 14:41:03 by mal-shol         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int	ft_str_length(char *str)
 {
@@ -56,20 +44,12 @@ int	ft_compute_final_length(char **strings, int size, int sep_length)
 	return (final_length);
 }
 
-char	*ft_strjoin(int size, char **strs, char *sep)
+void	ft_concat_strings(char *dest, char **strs, char *sep, int size)
 {
-	int		full_length;
 	int		index;
-	char	*string;
 	char	*d;
 
-	if (size == 0)
-		return ((char *)malloc(sizeof(char)));
-	full_length = ft_compute_final_length(strs, size, ft_str_length(sep));
-	d = string;
-	string = (char *)malloc((full_length + 1) * sizeof(char));
-	if (!d)
-		return (0);
+	d = dest;
 	index = 0;
 	while (index < size)
 	{
@@ -83,15 +63,33 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		index++;
 	}
 	*d = '\0';
+}
+
+char	*ft_strjoin(int size, char **strs, char *sep)
+{
+	int		full_length;
+	char	*string;
+
+	if (size == 0)
+	{
+		return ((char *)malloc(sizeof(char)));
+	}
+	full_length = ft_compute_final_length(strs, size, ft_str_length(sep));
+	string = (char *)malloc((full_length + 1) * sizeof(char));
+	if (!string)
+	{
+		return (0);
+	}
+	ft_concat_strings(string, strs, sep, size);
 	return (string);
 }
 
-/*int	main(void)
+/* int	main(void)
 {
 	char	**strs;
 	char	*separator;
 	char	*result;
-	int	size;
+	int		size;
 
 	size = 3;
 	strs = (char **)malloc(3 * sizeof(char *));
@@ -103,6 +101,6 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	strs[2] = "you are awesome";
 	separator = " ";
 	result = ft_strjoin(size, strs, separator);
-	printf("%s$\n", result);
+	printf("%s\n", result);
 	free(result);
-}*/
+} */

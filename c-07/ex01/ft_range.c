@@ -1,17 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mal-shol <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 14:26:42 by mal-shol          #+#    #+#             */
-/*   Updated: 2024/07/02 14:33:29 by mal-shol         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int	*ft_range(int min, int max)
 {
@@ -25,8 +13,8 @@ int	*ft_range(int min, int max)
 		return (0);
 	}
 	range = max - min;
-	d = buffer;
 	buffer = malloc(range * sizeof(int));
+	d = buffer;
 	if (!d)
 		return (0);
 	index = 0;
@@ -38,22 +26,22 @@ int	*ft_range(int min, int max)
 	return (buffer);
 }
 
-/*int	main(void)
+/* int	main(void)
 {
 	int	min;
 	int	max;
 	int	*tab;
-	int	i = 0;
+	int	i;
 	int	size;
 
+	i = 0;
 	min = 5;
 	max = 40;
 	size = max - min;
 	tab = ft_range(min, max);
-	while(i < size)
+	while (i < size)
 	{
 		printf("%d, ", tab[i]);
 		i++;
 	}
-
-}*/
+} */

@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mal-shol <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 14:21:06 by mal-shol          #+#    #+#             */
-/*   Updated: 2024/07/02 14:24:13 by mal-shol         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 
 int	ft_str_length(char *str)
 {
@@ -51,12 +39,12 @@ char	*ft_strdup(char *src)
 
 	char *duplicate = ft_strdup(original);
 
-    if (duplicate == NULL) 
-    {
-        perror("ft_strdup");
-        return EXIT_FAILURE;
-    }
+	if (duplicate == NULL)
+	{
+		perror("ft_strdup");
+		return (EXIT_FAILURE);
+	}
 
-    printf("Original: %s\n", original);
-    printf("Duplicate: %s\n", duplicate);
+	printf("Original: %s\n", original);
+	printf("Duplicate: %s\n", duplicate);
 }*/
